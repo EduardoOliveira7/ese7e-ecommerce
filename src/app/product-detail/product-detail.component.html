@@ -1,0 +1,24 @@
+@if (product) {
+  <div class="product-detail-container">
+    <img [src]="product.imageUrl" [alt]="product.name" class="product-image-detail">
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p class="description">{{ product.description }}</p>
+      <p class="price">R$ {{ product.price | number:'1.2-2' }}</p>
+
+      @if (product.specifications && product.specifications.length > 0) {
+        <h3>Especificações:</h3>
+        <ul>
+          @for (spec of product.specifications; track $index) {
+            <li>{{ spec }}</li>
+          }
+        </ul>
+      }
+
+      <button (click)="addToCart(product)">Adicionar ao Carrinho</button>
+      <button (click)="goBack()">Voltar para Produtos</button>
+    </div>
+  </div>
+} @else {
+  <p>Produto não encontrado.</p>
+}

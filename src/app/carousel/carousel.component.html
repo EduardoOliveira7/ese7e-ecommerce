@@ -1,0 +1,20 @@
+<div class="carousel-container">
+  @for (image of images; track $index) {
+    <div class="carousel-slide" [class.active]="currentIndex === $index">
+      <img [src]="image" alt="Produto em Destaque {{ $index + 1 }}">
+    </div>
+  }
+
+  <button class="carousel-control prev" (click)="prevImage()">&#10094;</button>
+  <button class="carousel-control next" (click)="nextImage()">&#10095;</button>
+
+  <div class="carousel-indicators">
+    @for (image of images; track $index) {
+      <span
+        class="indicator-dot"
+        [class.active]="currentIndex === $index"
+        (click)="goToImage($index)"
+      ></span>
+    }
+  </div>
+</div>

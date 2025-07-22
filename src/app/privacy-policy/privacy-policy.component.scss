@@ -1,0 +1,78 @@
+/* src/app/privacy-policy/privacy-policy.component.scss */
+.policy-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333; /* Cor padrão do texto */
+  line-height: 1.7; /* Espaçamento entre linhas */
+}
+
+h2 {
+  color: #007bff;
+  font-size: 4.0em;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+h3 {
+  color: #333;
+  font-size: 1.6em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Linha sutil abaixo dos títulos de seção */
+  padding-bottom: 5px;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+ul {
+  list-style: disc; /* Marcadores de lista */
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: 0.95em;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+.btn-primary { /* Estilo para o botão "Voltar" */
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsividade */
+@media (max-width: 767.98px) {
+  .policy-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  h3 {
+    font-size: 1.4em;
+  }
+  p, ul li {
+    font-size: 0.9em;
+  }
+}

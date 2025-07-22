@@ -1,0 +1,44 @@
+/* src/app/footer/footer.component.scss ou .css */
+
+.app-footer {
+  background-color: #979898;
+  color: rgb(248, 247, 247);
+  padding: 20px 20px;
+  text-align: center;
+  margin-top: auto;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.link {
+  color: rgb(13, 10, 231);
+  text-decoration: none;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px;
+}
+
+/* ... (restante dos estilos do footer) ... */
+
+/* === Media Queries para Footer === */
+
+/* Tablets e Celulares (até 767.98px) */
+@media (max-width: 767.98px) {
+  .footer-content {
+    flex-direction: column; /* Garante que os itens se empilhem */
+    gap: 15px;
+  }
+  .footer-nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .footer-nav ul li a {
+    font-size: 0.85em;
+  }
+}

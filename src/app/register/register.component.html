@@ -1,0 +1,59 @@
+<div class="register-container">
+  <h2>Criar sua Conta</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome Completo:</label>
+      <input id="name" type="text" formControlName="name">
+      @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+        <div class="error-message">Nome é obrigatório.</div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input id="email" type="email" formControlName="email">
+      @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+        @if (registerForm.get('email')?.errors?.['required']) {
+          <div class="error-message">E-mail é obrigatório.</div>
+        } @else if (registerForm.get('email')?.errors?.['email']) {
+          <div class="error-message">E-mail inválido.</div>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input id="password" type="password" formControlName="password">
+      @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+        @if (registerForm.get('password')?.errors?.['required']) {
+          <div class="error-message">Senha é obrigatória.</div>
+        } @else if (registerForm.get('password')?.errors?.['minlength']) {
+          <div class="error-message">Senha deve ter no mínimo 6 caracteres.</div>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirmar Senha:</label>
+      <input id="confirmPassword" type="password" formControlName="confirmPassword">
+      @if (registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched) {
+        <div class="error-message">Confirmação de senha é obrigatória.</div>
+      }
+      @if (registerForm.errors?.['mismatch'] && registerForm.get('confirmPassword')?.touched) {
+        <div class="error-message">As senhas não coincidem.</div>
+      }
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input id="lgpdConsent" type="checkbox" formControlName="lgpdConsent">
+      <label for="lgpdConsent">
+        Eu concordo com o uso dos meus dados para fins de cadastro e processamento de pedidos, conforme a Lei Geral de Proteção de Dados (LGPD).
+      </label>
+      @if (registerForm.get('lgpdConsent')?.invalid && registerForm.get('lgpdConsent')?.touched) {
+        <div class="error-message">Você deve aceitar os termos da LGPD para continuar.</div>
+      }
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Cadastrar</button>
+  </form>
+</div>

@@ -1,0 +1,129 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px; 
+  margin: 20px auto; 
+  overflow: hidden; 
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+  background-image: url('/assets/Imagens/Produtos/img-tec2.jpg'); 
+  background-size: cover; /* Cobre todo o contêiner */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  background-position: center center; /* Centraliza a imagem */
+  background-color: #f0f0f0; /* Cor de fallback ou base se a imagem não carregar */
+}
+
+.carousel-slide {
+  display: none; 
+  width: 100%;
+  height: 400px; 
+}
+
+.carousel-slide.active {
+  display: block; 
+}
+
+.carousel-slide img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 8px;
+}
+
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 10; 
+  border-radius: 50%; 
+  width: 50px; 
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px; 
+  z-index: 10;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator-dot.active {
+  background-color: #007bff; 
+  border: 1px solid white; 
+}
+
+.indicator-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+
+@media (max-width: 991.98px) {
+  .carousel-slide {
+    height: 350px; 
+  }
+  .carousel-control {
+    font-size: 1.8em;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  .carousel-slide {
+    height: 250px; 
+  }
+  .carousel-control {
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+    padding: 8px 10px;
+  }
+  .carousel-indicators {
+    bottom: 10px;
+    gap: 8px;
+  }
+  .indicator-dot {
+    width: 10px;
+    height: 10px;
+  }
+}

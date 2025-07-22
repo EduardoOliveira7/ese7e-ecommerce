@@ -1,0 +1,68 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+  gap: 25px; 
+  padding: 20px;
+  justify-content: center;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  
+  background-color: rgba(157, 162, 167, 0.521); 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: 180px; 
+  object-fit: contain; 
+  margin-bottom: 15px; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+
+}
+
+/* === Media Queries para Product List === */
+
+/* Tablets (até 991.98px) */
+@media (max-width: 991.98px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Reduz min-width */
+    gap: 20px;
+  }
+}
+
+/* Celulares (até 767.98px) */
+@media (max-width: 767.98px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* Uma única coluna */
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+}
+
+/* Celulares pequenos (até 575.98px) */
+@media (max-width: 575.98px) {
+  .product-card h3 {
+    font-size: 1.1em;
+  }
+  .product-card .price {
+    font-size: 1.2em;
+  }
+  .product-card button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,124 @@
+/* src/app/register/register.component.css */
+.register-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  /* background-color: #fff; */ /* Remova ou comente esta linha */
+  background-color: rgba(157, 162, 167, 0.521); /* <<=== Fundo branco com 90% de opacidade para melhor legibilidade */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333; /* Garante que o texto dentro do container seja escuro */
+}
+
+h2 {
+  text-align: center;
+  color: #007bff; /* Azul vibrante para o título */
+  margin-bottom: 25px;
+  font-size: 2em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Leve sombra para o título */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: calc(100% - 22px); /* Ajuste para padding e borda */
+  padding: 10px;
+  border: 1px solid #ccc; /* Borda cinza clara para visibilidade */
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #f8f8f8; /* Fundo suave para os inputs */
+  color: #333; /* Cor do texto do input */
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Estilos para o checkbox da LGPD */
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 25px; /* Mais espaçamento superior para o grupo */
+  margin-bottom: 30px; /* Mais espaçamento inferior */
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-top: 5px;
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+  min-width: 16px; /* Garante que o checkbox tenha tamanho mínimo */
+  min-height: 16px;
+}
+
+.checkbox-group label {
+  font-weight: normal;
+  color: #444; /* Cor mais escura para o texto da LGPD */
+  cursor: pointer;
+  font-size: 0.95em; /* Tamanho da fonte ligeiramente menor */
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #28a745; /* Verde para o botão de cadastro */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc; /* Cor cinza mais clara para desabilitado */
+  color: #666666; /* Texto cinza escuro para desabilitado */
+  cursor: not-allowed;
+}
+
+/* === Media Queries para Responsividade (Cadastro) === */
+@media (max-width: 767.98px) {
+  .register-container {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .checkbox-group label {
+    font-size: 0.9em;
+  }
+
+  button[type="submit"] {
+    font-size: 1.1em;
+    padding: 10px;
+  }
+}
