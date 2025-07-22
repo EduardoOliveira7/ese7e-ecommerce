@@ -8,10 +8,10 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 
   background-image: url('/assets/Imagens/Produtos/img-tec2.jpg'); 
-  background-size: cover; /* Cobre todo o contêiner */
-  background-repeat: no-repeat; /* Não repete a imagem */
-  background-position: center center; /* Centraliza a imagem */
-  background-color: #f0f0f0; /* Cor de fallback ou base se a imagem não carregar */
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center center; 
+  background-color: #f0f0f0; 
 }
 
 .carousel-slide {
