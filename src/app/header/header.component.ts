@@ -1,5 +1,4 @@
-// src/app/header/header.component.ts
-import { Component } from '@angular/core'; // <<=== ADICIONE ESTA LINHA
+import { Component } from '@angular/core'; 
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -7,9 +6,9 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss' // Ou .css se você mudou
+  styleUrl: './header.component.scss' 
 })
 export class HeaderComponent {
-  // ... (restante do seu código do componente) ...
+  
 }
 

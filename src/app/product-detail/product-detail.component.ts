@@ -51,15 +51,14 @@ export class ProductDetailComponent implements OnInit {
   ];
 
 
-  constructor(private route: ActivatedRoute, private cartService: CartService, private router: Router) { } // <<=== IMPORTE Router AQUI
+  constructor(private route: ActivatedRoute, private cartService: CartService, private router: Router) { }
 
-  // <<=== IMPLEMENTAÇÃO DO ngOnInit ESTAVA FALTANDO/INCOMPLETA ===>>
+  
   ngOnInit(): void {
-    // Subscribe para pegar o ID da rota
     this.route.paramMap.subscribe(params => {
-      const productId = Number(params.get('id')); // Pega o ID e converte para número
-      this.product = this.allProducts.find(p => p.id === productId); // Encontra o produto
-      // Opcional: Redirecionar se o produto não for encontrado
+      const productId = Number(params.get('id')); 
+      this.product = this.allProducts.find(p => p.id === productId); 
+      
       if (!this.product) {
         alert('Produto não encontrado!');
         this.router.navigate(['/produtos']);
@@ -67,16 +66,15 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  // <<=== IMPLEMENTAÇÃO DO goBack() ESTAVA FALTANDO/INCOMPLETA ===>>
+  
   goBack(): void {
-    this.router.navigate(['/produtos']); // Navega de volta para a lista de produtos
-    // Alternativamente, para voltar para a página anterior no histórico do navegador:
-    // window.history.back();
+    this.router.navigate(['/produtos']);
+
   }
 
-  // <<=== Método addToCart, já estava correto, apenas reorganizado ===>>
+  
   addToCart(product: Product): void {
-    this.cartService.addToCart(product); // Chama o método do serviço
-    alert(`${product.name} adicionado ao carrinho!`); // Feedback para o usuário
+    this.cartService.addToCart(product); 
+    alert(`${product.name} adicionado ao carrinho!`); 
   }
 }

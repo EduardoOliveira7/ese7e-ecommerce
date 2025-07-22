@@ -1,13 +1,12 @@
-/* src/app/privacy-policy/privacy-policy.component.scss */
 .policy-container {
   max-width: 800px;
   margin: 40px auto;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+  background-color: rgba(255, 255, 255, 0.9); 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  color: #333; /* Cor padrão do texto */
-  line-height: 1.7; /* Espaçamento entre linhas */
+  color: #333; 
+  line-height: 1.7; 
 }
 
 h2 {
@@ -23,7 +22,7 @@ h3 {
   font-size: 1.6em;
   margin-top: 30px;
   margin-bottom: 15px;
-  border-bottom: 1px solid #eee; /* Linha sutil abaixo dos títulos de seção */
+  border-bottom: 1px solid #eee; 
   padding-bottom: 5px;
 }
 
@@ -33,7 +32,7 @@ p {
 }
 
 ul {
-  list-style: disc; /* Marcadores de lista */
+  list-style: disc; 
   margin-left: 25px;
   margin-bottom: 20px;
   font-size: 0.95em;
@@ -43,7 +42,7 @@ ul li {
   margin-bottom: 8px;
 }
 
-.btn-primary { /* Estilo para o botão "Voltar" */
+.btn-primary { 
   display: inline-block;
   margin-top: 20px;
   padding: 10px 20px;
@@ -60,7 +59,7 @@ ul li {
   background-color: #0056b3;
 }
 
-/* Responsividade */
+
 @media (max-width: 767.98px) {
   .policy-container {
     margin: 20px 15px;

@@ -1,33 +1,32 @@
-// src/app/cart/cart.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule, NgIf, NgFor, CurrencyPipe } from '@angular/common'; // Importe NgIf, NgFor, CurrencyPipe
-import { Router } from '@angular/router'; // Importe o Router
+import { CommonModule, NgIf, NgFor, CurrencyPipe } from '@angular/common'; 
+import { Router } from '@angular/router'; 
 import { CartService } from '../cart.service';
-import { CartItem } from '../models/product.model'; // Importe CartItem
-import { Observable, Subscription } from 'rxjs'; // Importe Observable e Subscription
+import { CartItem } from '../models/product.model'; 
+import { Observable, Subscription } from 'rxjs'; 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, CurrencyPipe], // Adicione NgIf, NgFor e CurrencyPipe
+  imports: [CommonModule, CurrencyPipe], 
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit, OnDestroy {
-  cartItems$: Observable<CartItem[]>; // Usaremos um Observable para o carrinho
-  cartTotal$: Observable<number>;      // Observable para o total do carrinho
-  private cartSubscription: Subscription | undefined; // Para gerenciar a inscrição
+  cartItems$: Observable<CartItem[]>; 
+  cartTotal$: Observable<number>;     
+  private cartSubscription: Subscription | undefined; 
 
   constructor(private cartService: CartService, public router: Router) {
-    this.cartItems$ = this.cartService.getCartItems(); // Pega o Observable dos itens
-    this.cartTotal$ = this.cartService.getCartTotal(); // Pega o Observable do total
+    this.cartItems$ = this.cartService.getCartItems(); 
+    this.cartTotal$ = this.cartService.getCartTotal(); 
   }
 
   ngOnInit(): void {
     
   }
 
-  // Métodos para gerenciar o carrinho
+  
   updateQuantity(item: CartItem, event: Event): void {
     const target = event.target as HTMLInputElement;
     const newQuantity = Number(target.value);
@@ -47,12 +46,12 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   checkout(): void {
-    // Navegar para a página de cadastro/checkout
-    this.router.navigate(['/cadastro']); // Ou '/finalizar-pedido' se você tiver uma página de login
+    
+    this.router.navigate(['/cadastro']); 
   }
 
   ngOnDestroy(): void {
-    // Garante que a inscrição seja desfeita para evitar memory leaks
+    
     this.cartSubscription?.unsubscribe();
   }
 }

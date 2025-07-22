@@ -1,8 +1,7 @@
-// src/app/cart.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators'; // Garanta que 'map' está importado!
-import { Product, CartItem } from './models/product.model'; // Importe DO ARQUIVO product.model.ts
+import { map } from 'rxjs/operators'; 
+import { Product, CartItem } from './models/product.model'; 
 
 
 

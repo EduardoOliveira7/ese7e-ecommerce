@@ -137,10 +137,10 @@ h3 {
   }
 }
 
-/* Media Query para Celulares bem pequenos (se necessário) */
+
 @media (max-width: 480px) {
   .item-image-small {
-    width: 60px; /* Reduz ainda mais em telas muito pequenas */
+    width: 60px; 
     height: 60px;
   }
 }

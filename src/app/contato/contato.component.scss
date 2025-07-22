@@ -1,34 +1,33 @@
-/* src/app/contato/contato.component.css */
 .contact-container {
   max-width: 700px;
   margin: 40px auto;
   padding: 30px;
-  /* background-color: transparent; */ /* Remova ou comente esta linha, se estiver transparente */
-  background-color: rgba(157, 162, 167, 0.521); /* <<=== Fundo branco com 90% de opacidade para melhor legibilidade */
+ 
+  background-color: rgba(157, 162, 167, 0.521); 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
-  color: #333; /* Garante que o texto dentro do container seja escuro */
+  color: #333; 
 }
 
 h2 {
-  color: #007bff; /* Azul vibrante */
+  color: #007bff; 
   font-size: 2.9em;
   margin-bottom: 20px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Leve sombra para o título */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
 }
 
-.contact-container > p { /* Seletor mais específico para o parágrafo logo abaixo do h2 */
+.contact-container > p { 
   font-size: 1.8em;
   color: #0b0b0b;
   line-height: 1.6;
-  margin-bottom: 30px; /* Mais espaçamento abaixo do parágrafo inicial */
+  margin-bottom: 30px; 
 }
 
 .contact-info, .social-links {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid #eee; /* Linha divisória */
+  border-top: 1px solid #eee; 
 }
 
 .contact-info h3, .social-links h3 {
@@ -38,22 +37,22 @@ h2 {
 }
 
 .contact-info p {
-  margin-bottom: 10px; /* Espaçamento entre as linhas de contato */
+  margin-bottom: 10px; 
   font-size: 1.1em;
   color: #444;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza telefone e e-mail */
+  justify-content: center; 
 }
 
 .contact-info p i {
   margin-right: 10px;
   color: #007bff;
-  font-size: 1.2em; /* Ícones um pouco maiores */
+  font-size: 1.2em; 
 }
 
 .social-links {
-  margin-top: 40px; /* Mais espaçamento antes dos links sociais */
+  margin-top: 40px; 
 }
 
 .social-links ul {
@@ -61,34 +60,34 @@ h2 {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 30px; /* Mais espaçamento entre os ícones sociais */
+  gap: 30px; 
   flex-wrap: wrap;
 }
 
 .social-links ul li a {
   text-decoration: none;
   color: #007bff;
-  font-size: 1.3em; /* Links sociais um pouco maiores */
+  font-size: 1.3em; 
   transition: color 0.3s ease, transform 0.2s ease;
   display: flex;
-  flex-direction: column; /* Empilha ícone e texto */
+  flex-direction: column; 
   align-items: center;
-  gap: 5px; /* Espaçamento entre ícone e texto */
-  padding: 10px; /* Área clicável maior */
+  gap: 5px; 
+  padding: 10px; 
   border-radius: 5px;
 }
 
 .social-links ul li a:hover {
   color: #0056b3;
-  transform: translateY(-3px); /* Efeito de "levitar" ao passar o mouse */
+  transform: translateY(-3px); 
 }
 
 .social-links ul li a i.fab {
-  font-size: 2em; /* Ícones sociais maiores */
-  margin-bottom: 5px; /* Espaçamento entre ícone e texto */
+  font-size: 2em; 
+  margin-bottom: 5px; 
 }
 
-/* Responsividade para telas menores */
+
 @media (max-width: 767.98px) {
   .contact-container {
     margin: 20px 15px;

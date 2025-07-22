@@ -1,39 +1,37 @@
-/* src/app/product-detail/product-detail.component.css */
-
 .product-detail-container {
-  display: flex; /* <<=== Habilita o Flexbox */
-  flex-direction: row; /* <<=== Padrão: itens lado a lado no desktop */
-  align-items: center; /* <<=== Centraliza verticalmente a imagem e o bloco de info */
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
   padding: 30px;
-  max-width: 1000px; /* Largura máxima do container no desktop */
-  margin: 40px auto; /* <<=== Centraliza o container na página e dá margem */
-  background-color: rgba(157, 162, 167, 0.521); /* Fundo semi-transparente */
+  max-width: 1000px; 
+  margin: 40px auto; 
+  background-color: rgba(157, 162, 167, 0.521); 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  flex-wrap: wrap; /* Permite que os itens quebrem linha se não houver espaço */
+  flex-wrap: wrap; 
 }
 
 .product-image-detail {
-  max-width: 40%; /* <<=== A imagem ocupará 40% da largura do container */
-  height: auto; /* Altura automática para manter proporção */
-  max-height: 400px; /* Altura máxima para a imagem */
-  object-fit: contain; /* Redimensiona para caber, mantendo proporção */
-  margin-right: 30px; /* <<=== Espaçamento à direita da imagem */
+  max-width: 40%; 
+  height: auto; 
+  max-height: 400px; 
+  object-fit: contain;
+  margin-right: 30px; 
   border-radius: 5px;
-  flex-shrink: 0; /* Impede que a imagem encolha se o espaço for limitado */
+  flex-shrink: 0; 
 }
 
 .product-info {
-  flex: 1; /* <<=== Ocupa o restante do espaço disponível */
-  text-align: left; /* Alinhamento do texto à esquerda */
-  color: #0a0a0a; /* Cor do texto para garantir legibilidade */
+  flex: 1;
+  text-align: left; 
+  color: #0a0a0a; 
 }
 
 .product-info h2 {
   font-size: 2.2em;
   color: #007bff;
   margin-bottom: 10px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Leve sombra no título */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
 }
 
 .product-info .description {
@@ -46,11 +44,11 @@
 .product-info .price {
   font-size: 2em;
   font-weight: bold;
-  color: #28a745; /* Verde para o preço */
-  margin-bottom: 25px;
+  color: #28a745; 
+  margin-bottom: 25p0x;
 }
 
-.product-info h3 { /* Para "Especificações" */
+.product-info h3 { 
   font-size: 1.5em;
   color: #444;
   margin-top: 20px;
@@ -64,7 +62,7 @@
 }
 
 .product-info li {
-  background-color: rgba(249, 249, 249, 0.8); /* Fundo suave semi-transparente para as specs */
+  background-color: rgba(249, 249, 249, 0.8); 
   border-left: 3px solid #007bff;
   padding: 8px 15px;
   margin-bottom: 8px;
@@ -80,7 +78,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.1em;
-  margin: 10px 10px 10px 0; /* Margem para separar botões */
+  margin: 10px 10px 10px 0; 
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -88,33 +86,29 @@
   background-color: #0056b3;
 }
 
-/* === Media Queries para Responsividade === */
-
-/* Tablets e Celulares (até 991.98px) */
 @media (max-width: 991.98px) {
   .product-detail-container {
-    flex-direction: column; /* <<=== Empilha imagem e info em telas menores */
-    align-items: center; /* Centraliza verticalmente */
+    flex-direction: column; 
+    align-items: center; 
     padding: 20px;
     margin: 20px auto;
   }
 
   .product-image-detail {
-    max-width: 80%; /* Ocupa mais espaço em telas menores */
-    margin-right: 0; /* Remove espaçamento lateral */
-    margin-bottom: 20px; /* Adiciona espaçamento inferior */
+    max-width: 80%; 
+    margin-right: 0; 
+    margin-bottom: 20px; 
   }
 
   .product-info {
-    text-align: center; /* Centraliza o texto */
+    text-align: center; 
   }
 
   .product-info button {
-    margin: 10px; /* Ajusta margens dos botões quando centralizados */
+    margin: 10px; 
   }
 }
 
-/* Celulares (até 767.98px) - ajustes finos */
 @media (max-width: 767.98px) {
   .product-detail-container {
     padding: 15px;
