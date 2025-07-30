@@ -1,3 +1,5 @@
+/* src/app/header/header.component.scss ou .css */
+
 .app-header {
   background-color: #333;
   color: white;
@@ -6,16 +8,16 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* Permite que os itens quebrem linha */
 }
 
 .app-header .logo {
-  flex-grow: 1; 
+  flex-grow: 1; /* Permite que o logo cresça */
   text-align: left;
 }
 
 .app-header .logo img {
-  height: 40px;
+  height: 40px; /* Ajuste o tamanho do seu logo */
 }
 
 .app-header .logo a {
@@ -26,8 +28,8 @@
 }
 
 .app-header nav {
-  flex-grow: 1; 
-  text-align: right; 
+  flex-grow: 1; /* Permite que a navegação cresça */
+  text-align: right; /* Alinha os itens do menu à direita por padrão */
 }
 
 .app-header nav ul {
@@ -35,7 +37,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* Alinha à direita no desktop */
   flex-wrap: wrap;
 }
 
@@ -55,17 +57,57 @@
   color: #007bff;
 }
 
+/* Estilos para o ícone do carrinho */
+.cart-icon-container {
+  position: relative; /* Para posicionar o badge */
+  margin-left: 30px; /* Espaçamento para o ícone do carrinho */
+}
 
+.cart-icon-container a {
+  display: flex; /* Para alinhar o ícone e o texto/badge */
+  align-items: center;
+  gap: 5px; /* Espaçamento entre o ícone e o badge/texto */
+  font-size: 1.2em; /* Tamanho do texto do link do carrinho */
+}
+
+.cart-icon-container .fas.fa-shopping-cart {
+  font-size: 1.5em; /* Tamanho do ícone do carrinho */
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.cart-icon-container a:hover .fas.fa-shopping-cart {
+  color: #007bff; /* Cor ao passar o mouse */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px; /* Ajuste para posicionar acima do ícone */
+  right: -12px; /* Ajuste para posicionar à direita do ícone */
+  background-color: #dc3545; /* Cor vermelha para o badge (pode ser outra cor) */
+  color: white;
+  border-radius: 50%; /* Faz o badge ser redondo */
+  padding: 2px 6px; /* Padding interno */
+  font-size: 0.7em; /* Tamanho da fonte do número */
+  min-width: 20px; /* Largura mínima para números de 1 ou 2 dígitos */
+  text-align: center;
+  font-weight: bold;
+  pointer-events: none; /* Garante que o clique passe para o link subjacente */
+}
+
+/* === Media Queries para Header - Ajustar o ícone do carrinho === */
+
+/* Tablets e Celulares (ajustes gerais) */
 @media (max-width: 991.98px) {
   .app-header {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column; /* Empilha logo e navegação */
+    align-items: center; /* Centraliza verticalmente */
     padding: 15px;
   }
 
   .app-header .logo, .app-header nav {
-    text-align: center; 
-    width: 100%; 
+    text-align: center; /* Centraliza tudo */
+    width: 100%; /* Ocupa a largura total */
   }
 
   .app-header nav {
@@ -73,31 +115,46 @@
   }
 
   .app-header nav ul {
-    flex-direction: column; 
+    flex-direction: column; /* Links empilhados verticalmente */
     align-items: center;
     width: 100%;
     margin-top: 10px;
   }
 
   .app-header nav ul li {
-    margin: 5px 0; 
+    margin: 5px 0; /* Espaçamento vertical */
     width: 100%;
   }
 
   .app-header nav ul li a {
-    display: block; 
+    display: block; /* Ocupa a largura total do li */
     padding: 10px 0;
-    background-color: rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.1); /* Um fundo sutil para cliques */
     border-radius: 5px;
+  }
+
+  .cart-icon-container {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+  .cart-icon-container a {
+    justify-content: center;
+  }
+  .cart-badge {
+    top: 0px;
+    right: auto;
+    left: calc(50% + 15px);
+    transform: translateX(-50%);
   }
 }
 
-
+/* Celulares (até 767.98px) - ajustes mais finos */
 @media (max-width: 767.98px) {
   .app-header .logo a {
-    font-size: 1.5em; 
+    font-size: 1.5em; /* Reduz um pouco o tamanho do logo textual */
   }
   .app-header .logo img {
-    height: 35px; 
+    height: 35px; /* Reduz o tamanho do logo da imagem */
   }
 }

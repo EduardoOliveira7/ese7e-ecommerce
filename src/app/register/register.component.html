@@ -44,10 +44,122 @@
       }
     </div>
 
+    <hr>
+    <h3>Dados Pessoais</h3>
+
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input id="cpf" type="text" formControlName="cpf" placeholder="XXX.XXX.XXX-XX">
+      @if (registerForm.get('cpf')?.invalid && registerForm.get('cpf')?.touched) {
+        @if (registerForm.get('cpf')?.errors?.['required']) {
+          <div class="error-message">CPF é obrigatório.</div>
+        } @else if (registerForm.get('cpf')?.errors?.['pattern']) {
+          <div class="error-message">Formato de CPF inválido. Use XXX.XXX.XXX-XX</div>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Telefone:</label>
+      <input id="phone" type="text" formControlName="phone" placeholder="(XX) XXXXX-XXXX">
+      @if (registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched) {
+        @if (registerForm.get('phone')?.errors?.['required']) {
+          <div class="error-message">Telefone é obrigatório.</div>
+        } @else if (registerForm.get('phone')?.errors?.['pattern']) {
+          <div class="error-message">Formato de telefone inválido. Use (XX) XXXX-XXXX ou (XX) XXXXX-XXXX</div>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Data de Nascimento:</label>
+      <input id="birthDate" type="date" formControlName="birthDate">
+      @if (registerForm.get('birthDate')?.invalid && registerForm.get('birthDate')?.touched) {
+        @if (registerForm.get('birthDate')?.errors?.['required']) {
+          <div class="error-message">Data de Nascimento é obrigatória.</div>
+        } @else if (registerForm.get('birthDate')?.errors?.['pattern']) {
+          <div class="error-message">Formato de data inválido. Use AAAA-MM-DD.</div>
+        }
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gênero:</label>
+      <select id="gender" formControlName="gender">
+        <option value="">Selecione...</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="nao-informar">Prefiro não informar</option>
+      </select>
+      @if (registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
+        <div class="error-message">Gênero é obrigatório.</div>
+      }
+    </div>
+
+    <hr>
+    <h3>Endereço</h3>
+
+    <div formGroupName="address">
+      <div class="form-group">
+        <label for="street">Rua:</label>
+        <input id="street" type="text" formControlName="street">
+        @if (registerForm.get('address.street')?.invalid && registerForm.get('address.street')?.touched) {
+          <div class="error-message">Rua é obrigatória.</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="number">Número:</label>
+        <input id="number" type="text" formControlName="number">
+        @if (registerForm.get('address.number')?.invalid && registerForm.get('address.number')?.touched) {
+          <div class="error-message">Número é obrigatório.</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="complement">Complemento:</label>
+        <input id="complement" type="text" formControlName="complement">
+      </div>
+
+      <div class="form-group">
+        <label for="neighborhood">Bairro:</label>
+        <input id="neighborhood" type="text" formControlName="neighborhood">
+        @if (registerForm.get('address.neighborhood')?.invalid && registerForm.get('address.neighborhood')?.touched) {
+          <div class="error-message">Bairro é obrigatório.</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="city">Cidade:</label>
+        <input id="city" type="text" formControlName="city">
+        @if (registerForm.get('address.city')?.invalid && registerForm.get('address.city')?.touched) {
+          <div class="error-message">Cidade é obrigatória.</div>
+        }
+      </div> <div class="form-group">
+        <label for="state">Estado:</label>
+        <input id="state" type="text" formControlName="state">
+        @if (registerForm.get('address.state')?.invalid && registerForm.get('address.state')?.touched) {
+          <div class="error-message">Estado é obrigatório.</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="zipCode">CEP:</label>
+        <input id="zipCode" type="text" formControlName="zipCode" placeholder="XXXXX-XXX">
+        @if (registerForm.get('address.zipCode')?.invalid && registerForm.get('address.zipCode')?.touched) {
+          @if (registerForm.get('address.zipCode')?.errors?.['required']) {
+            <div class="error-message">CEP é obrigatório.</div>
+          } @else if (registerForm.get('address.zipCode')?.errors?.['pattern']) {
+            <div class="error-message">Formato de CEP inválido. Use XXXXX-XXX</div>
+          }
+        }
+      </div>
+    </div>
     <div class="form-group checkbox-group">
       <input id="lgpdConsent" type="checkbox" formControlName="lgpdConsent">
       <label for="lgpdConsent">
-        Eu concordo com o uso dos meus dados para fins de cadastro e processamento de pedidos, conforme a Lei Geral de Proteção de Dados (LGPD).
+        Eu concordo com o uso dos meus dados para fins de cadastro e processamento de pedidos, conforme a
+        <a routerLink="/politica-privacidade" target="_blank">Lei Geral de Proteção de Dados (LGPD)</a>.
       </label>
       @if (registerForm.get('lgpdConsent')?.invalid && registerForm.get('lgpdConsent')?.touched) {
         <div class="error-message">Você deve aceitar os termos da LGPD para continuar.</div>

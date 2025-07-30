@@ -1,0 +1,86 @@
+<div class="payment-container">
+  <h2>Pagamento do Pedido</h2>
+  <div class="order-total">
+    <p>Total do seu Pedido: <strong>{{ (cartTotal$ | async) | currency:'BRL':'symbol':'1.2-2' }}</strong></p>
+  </div>
+
+  <div class="payment-methods">
+    <h3>Selecione o Método de Pagamento:</h3>
+    <div class="method-options">
+      <button
+        [class.active]="paymentMethod === 'credit-card'"
+        (click)="selectPaymentMethod('credit-card')"
+      >
+        <i class="fas fa-credit-card"></i> Cartão de Crédito
+      </button>
+      <button
+        [class.active]="paymentMethod === 'pix'"
+        (click)="selectPaymentMethod('pix')"
+      >
+        <i class="fas fa-qrcode"></i> Pix
+      </button>
+      <button
+        [class.active]="paymentMethod === 'boleto'"
+        (click)="selectPaymentMethod('boleto')"
+      >
+        <i class="fas fa-barcode"></i> Boleto Bancário
+      </button>
+    </div>
+  </div>
+
+  <div class="payment-forms">
+    @if (paymentMethod === 'credit-card') {
+      <form [formGroup]="creditCardForm" (ngSubmit)="processPayment()" class="payment-form">
+        <h4>Dados do Cartão de Crédito</h4>
+        <div class="form-group">
+          <label for="cardNumber">Número do Cartão:</label>
+          <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="XXXXXXXXXXXXXXXX">
+          @if (creditCardForm.get('cardNumber')?.invalid && creditCardForm.get('cardNumber')?.touched) {
+            <div class="error-message">Número do cartão inválido (16 dígitos).</div>
+          }
+        </div>
+        <div class="form-group">
+          <label for="cardHolderName">Nome Impresso no Cartão:</label>
+          <input id="cardHolderName" type="text" formControlName="cardHolderName">
+          @if (creditCardForm.get('cardHolderName')?.invalid && creditCardForm.get('cardHolderName')?.touched) {
+            <div class="error-message">Nome é obrigatório.</div>
+          }
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiryDate">Validade (MM/AA):</label>
+            <input id="expiryDate" type="text" formControlName="expiryDate" placeholder="MM/AA">
+            @if (creditCardForm.get('expiryDate')?.invalid && creditCardForm.get('expiryDate')?.touched) {
+              <div class="error-message">Validade inválida (MM/AA).</div>
+            }
+          </div>
+          <div class="form-group">
+            <label for="cvv">CVV:</label>
+            <input id="cvv" type="text" formControlName="cvv" placeholder="XXX">
+            @if (creditCardForm.get('cvv')?.invalid && creditCardForm.get('cvv')?.touched) {
+              <div class="error-message">CVV inválido (3 ou 4 dígitos).</div>
+            }
+          </div>
+        </div> <button type="submit" [disabled]="creditCardForm.invalid">Confirmar Pagamento</button>
+      </form>
+    }
+
+    @if (paymentMethod === 'pix') {
+      <form [formGroup]="pixForm" (ngSubmit)="processPayment()" class="payment-form">
+        <h4>Pagar com Pix</h4>
+        <p>Escaneie o QR Code abaixo ou copie a chave Pix.</p>
+        <img src="assets/Imagens/qr-code-pix.png" alt="QR Code Pix" class="qr-code-img">
+        
+         </form>
+    }
+
+    @if (paymentMethod === 'boleto') {
+      <div class="payment-form">
+        <h4>Pagar com Boleto Bancário</h4>
+        <p>Um boleto bancário será gerado após a confirmação do pedido.</p>
+        <p>Você pode pagar em qualquer banco ou casa lotérica.</p>
+        <button (click)="processPayment()">Gerar Boleto e Finalizar</button>
+      </div>
+    }
+  </div> </div> ```
+

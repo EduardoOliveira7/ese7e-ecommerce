@@ -4,7 +4,9 @@ export interface Product {
   description: string;
   price: number;
   imageUrl: string;
-  specifications?: string[]; 
+  specifications?: string[];
+  type?: string;
+  brand?: string;
 }
 
 export interface CartItem extends Product {

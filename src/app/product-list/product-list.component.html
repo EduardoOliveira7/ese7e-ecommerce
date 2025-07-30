@@ -1,16 +1,57 @@
-<h2>Nossos Componentes de Informática</h2>
+<div class="product-page-container" [class.menu-open]="isMenuOpen">
+  <div class="product-header">
+    <button class="hamburger-menu-button" (click)="toggleMenu()">
+      <i class="fas fa-bars"></i> </button>
+    <h2>Nossos Componentes de Informática</h2>
+    <div></div>
+  </div>
 
-<div class="product-grid">
-  @for (product of products; track product.id) {
-    <div class="product-card">
-      <img [src]="product.imageUrl" [alt]="product.name">
-      <h3>{{ product.name }}</h3>
-      <p>{{ product.description }}</p>
-      <p class="price">R$ {{ product.price | number:'1.2-2' }}</p>
-      <button (click)="viewProductDetail(product.id)">Ver Detalhes</button>
-      <button (click)="addToCart(product)">Adicionar ao Carrinho</button>
+  <div class="main-product-content">
+    <div class="sidebar-menu">
+      <h3>Categorias</h3>
+      <button class="close-menu-button" (click)="toggleMenu()">
+        <i class="fas fa-times"></i> </button>
+
+      <div class="filter-section">
+        <h4>Tipos de Produto</h4>
+        
+        <ul>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('all')">Todos</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('cpu')">CPUs</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('fone')">Fones de Ouvido</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('kit')">Kits</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('memoria')">Memórias RAM</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('monitor')">Monitores</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('Mouse')">Mouses</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('placa-de-video')">Placas de Vídeo</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('processador')">Processadores</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('ssd')">SSDs</a></li>
+          <li><a href="#" (click)="$event.preventDefault(); filterByType('teclado')">Teclados</a></li>
+          </ul>
+      </div>
+
+      <div class="filter-section">
+        <h4>Preço</h4>
+        <p>Em breve...</p>
+      </div>
     </div>
-  } @empty {
-    <p>Nenhum produto encontrado.</p>
+
+    <div class="product-grid">
+      @for (product of displayProducts; track product.id) {
+        <div class="product-card">
+          <img [src]="product.imageUrl" [alt]="product.name">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.description }}</p>
+          <p class="price">R$ {{ product.price | number:'1.2-2' }}</p>
+          <button (click)="viewProductDetail(product.id)">Ver Detalhes</button>
+          <button (click)="addToCart(product)">Adicionar ao Carrinho</button>
+        </div>
+      } @empty {
+        <p>Nenhum produto encontrado.</p>
+      }
+    </div>
+  </div>
+  @if (isMenuOpen) {
+    <div class="overlay" (click)="toggleMenu()"></div>
   }
 </div>

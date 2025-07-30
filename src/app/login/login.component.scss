@@ -1,0 +1,105 @@
+/* src/app/login/login.component.css */
+.login-container {
+  max-width: 400px; /* Um pouco menor que o de cadastro */
+  margin: 60px auto; /* Mais margem superior para centralizar */
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 25px;
+  font-size: 2em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: calc(100% - 22px); /* Largura total menos padding e borda */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; /* Azul para o botão de login */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 20px; /* Espaçamento acima do botão */
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.95em;
+  color: #555;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.register-link a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* === Media Queries para Responsividade (Login) === */
+@media (max-width: 767.98px) {
+  .login-container {
+    margin: 20px 15px; /* Reduz margens laterais */
+    padding: 20px;
+  }
+  .form-group input {
+    width: 100%;
+  }
+}

@@ -7,6 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { CheckoutComponent } from './checkout/checkout.component'; 
 import { ContatoComponent } from './contato/contato.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { LoginComponent } from './login/login.component';
+import { PaymentComponent } from './payment/payment.component'; 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, 
@@ -17,5 +19,7 @@ export const routes: Routes = [
   { path: 'finalizar-pedido', component: CheckoutComponent }, 
   { path: 'contato', component: ContatoComponent },
   { path: 'politica-privacidade', component: PrivacyPolicyComponent },
+   { path: 'login', component: LoginComponent },
+   { path: 'pagamento', component: PaymentComponent },
   { path: '**', redirectTo: '' } 
 ];

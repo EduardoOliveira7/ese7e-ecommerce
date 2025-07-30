@@ -28,11 +28,11 @@
     flex-direction: column; 
     gap: 15px;
   }
-  .footer-nav ul {
-    flex-direction: column;
-    gap: 8px;
+  .footer-nav ul li a:hover {
+  color: #007bff;
   }
   .footer-nav ul li a {
-    font-size: 0.85em;
+    font-size: 0.9em;
+  transition: color 0.3s ease;
   }
 }

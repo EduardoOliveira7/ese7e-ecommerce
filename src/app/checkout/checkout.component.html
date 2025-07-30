@@ -18,9 +18,10 @@
     </div>
 
     <div class="order-summary">
-      <h3>Total a Pagar: {{ (cartTotal$ | async) | currency:'BRL':'symbol':'1.2-2' }}</h3>
-      <button (click)="confirmOrder()" class="confirm-order-btn">Confirmar Pedido</button>
-    </div>
+  <h3>Total a Pagar: {{ (cartTotal$ | async) | currency:'BRL':'symbol':'1.2-2' }}</h3>
+  <button (click)="confirmOrder()" class="confirm-order-btn">Confirmar Pedido</button>
+</div>
+
   } @else {
     <p class="empty-checkout-message">Nenhum item para finalizar. Seu carrinho está vazio.</p>
     <button (click)="router.navigate(['/produtos'])" class="back-to-shop-btn">Voltar às Compras</button>

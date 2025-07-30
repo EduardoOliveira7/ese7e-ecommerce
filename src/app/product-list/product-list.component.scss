@@ -1,11 +1,139 @@
+/* src/app/product-list/product-list.component.scss */
+
+/* Container principal da página de produtos */
+.product-page-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  color: #333;
+  display: flex; /* Torna o container principal flex */
+  flex-direction: column; /* Itens (header, main-content) empilhados */
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.product-header h2 {
+  font-size: 2em;
+  color: #007bff;
+  margin: 0;
+}
+
+/* Botão Hamburguer - Por padrão escondido em desktop */
+.hamburger-menu-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: none; /* <<=== Escondido por padrão em desktop ===>> */
+}
+
+/* === Novo Contêiner para Sidebar e Grid === */
+.main-product-content {
+  display: flex; /* Habilita flexbox para sidebar e grid */
+  flex-grow: 1; /* Permite que ocupe o espaço restante */
+  padding-top: 20px; /* Espaçamento entre header e conteúdo principal */
+}
+
+/* Overlay (fundo escuro quando o menu está aberto em mobile) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none; /* Escondido por padrão */
+}
+
+/* Sidebar Menu (Filtros) */
+.sidebar-menu {
+  width: 250px; /* <<=== Largura da sidebar no desktop */
+  min-width: 250px; /* Garante que não encolhe menos que isso */
+  padding-right: 20px; /* Espaçamento entre sidebar e grid */
+  /* No desktop, ela é parte do fluxo normal, então não precisa de position: fixed/absolute */
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo da sidebar */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05); /* Sombra suave à direita */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Impede que a sidebar encolha se o grid precisar de mais espaço */
+}
+
+.sidebar-menu h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.close-menu-button {
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: #555;
+  cursor: pointer;
+  position: absolute; /* Será posicionada dentro do menu lateral em mobile */
+  top: 15px;
+  right: 15px;
+  display: none; /* Escondido por padrão em desktop */
+}
+
+/* Seções de Filtro */
+.filter-section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.filter-section:last-child {
+  border-bottom: none; /* Remove borda do último filtro */
+}
+
+.filter-section h4 {
+  color: #007bff;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.filter-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.filter-section ul li a {
+  text-decoration: none;
+  color: #555;
+  display: block;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.filter-section ul li a:hover {
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Estilos do Grid de Produtos */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-  gap: 25px; 
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding-left: 20px; /* Espaçamento entre sidebar e grid */
+  flex-grow: 1; /* Permite que o grid ocupe o espaço restante */
   justify-content: center;
-  max-width: 1200px; 
-  margin: 0 auto; 
+  transition: margin-left 0.3s ease-out;
 }
 
 .product-card {
@@ -13,54 +141,167 @@
   border-radius: 8px;
   padding: 20px;
   text-align: center;
-  
-  background-color: rgba(157, 162, 167, 0.521); 
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  background-color: rgba(157, 162, 167, 0.521);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   transition: transform 0.2s ease-in-out;
 }
 
 .product-card img {
   max-width: 100%;
-  height: 180px; 
-  object-fit: contain; 
-  margin-bottom: 15px; 
-  display: block; 
-  margin-left: auto; 
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
   margin-right: auto;
+}
 
+.product-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+.product-card p {
+  font-size: 0.9em;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.product-card .price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product-card button:hover {
+  background-color: #0056b3;
 }
 
 
+/* === Media Queries para Responsividade (Sidebar Hamburguer e Grid de Produtos) === */
+
+/* Tablets e Celulares (até 991.98px) */
 @media (max-width: 991.98px) {
+  .product-page-container {
+    flex-direction: column; /* Empilha header e main-content */
+    padding: 0 10px; /* Reduz padding lateral do container geral */
+  }
+
+  .product-header {
+    flex-direction: row; /* Volta a ser row para alinhar hamburger e título */
+    justify-content: space-between; /* Espaço entre eles */
+    align-items: center;
+    padding: 15px 0;
+  }
+  .product-header h2 {
+    font-size: 1.5em;
+    text-align: center;
+    flex-grow: 1; /* Permite que o título ocupe o espaço central */
+  }
+
+  .hamburger-menu-button {
+    display: block; /* <<=== Mostra o botão hamburger em telas menores ===>> */
+    order: -1; /* Força o botão para a esquerda no flexbox */
+    margin-right: 15px; /* Espaçamento entre botão e título */
+  }
+
+  .main-product-content {
+    flex-direction: column; /* Empilha sidebar e grid em telas menores */
+    padding-top: 15px;
+  }
+
+  /* === Sidebar no Mobile: Fixed e Desliza === */
+  .sidebar-menu {
+    position: fixed; /* Fixa o menu na tela */
+    top: 0;
+    left: 0; /* Desliza da ESQUERDA */
+    width: 280px; /* Largura do menu mobile */
+    height: 100%;
+    z-index: 1000;
+    transform: translateX(-100%); /* Escondido fora da tela (para a esquerda) */
+    transition: transform 0.3s ease-out;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2); /* Sombra mais pronunciada */
+    padding-right: 0; /* Remove padding lateral extra quando é um menu fixo */
+    background-color: #f8f8f8; /* Fundo sólido para o menu mobile */
+  }
+
+  .close-menu-button {
+    display: block; /* Mostra o botão de fechar no menu mobile */
+  }
+
+  /* Quando o menu está aberto */
+  .product-page-container.menu-open .overlay {
+    display: block; /* Mostra o overlay */
+  }
+  .product-page-container.menu-open .sidebar-menu {
+    transform: translateX(0); /* Desliza o menu para dentro da tela */
+  }
+
+  /* Grid de Produtos em Mobile */
   .product-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    padding-left: 0; /* Remove padding lateral do grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Continua em grid ou 1fr */
     gap: 20px;
   }
+
+  .product-card img {
+    height: 150px;
+  }
 }
 
-
+/* Celulares (até 767.98px) */
 @media (max-width: 767.98px) {
+  .product-header h2 {
+    font-size: 1.3em;
+  }
+  .hamburger-menu-button {
+    padding: 8px 12px;
+    font-size: 1.2em;
+  }
+  .sidebar-menu {
+    width: 250px; /* Largura um pouco menor para celulares */
+  }
   .product-grid {
-    grid-template-columns: 1fr; 
-    padding: 15px;
+    grid-template-columns: 1fr; /* Uma única coluna em celulares */
+    padding: 10px 0;
     gap: 15px;
   }
-
   .product-card {
     padding: 15px;
   }
+  .product-card img {
+    height: 120px;
+  }
 }
 
-
+/* Celulares pequenos (até 575.98px) */
 @media (max-width: 575.98px) {
-  .product-card h3 {
+  .product-header h2 {
     font-size: 1.1em;
   }
-  .product-card .price {
-    font-size: 1.2em;
+  .hamburger-menu-button {
+    font-size: 1em;
+    padding: 6px 10px;
   }
-  .product-card button {
-    padding: 8px 12px;
-    font-size: 0.9em;
+  .sidebar-menu {
+    width: 220px;
+  }
+  .product-grid {
+    padding: 5px 0;
+  }
+  .product-card img {
+    height: 100px;
   }
 }

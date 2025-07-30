@@ -15,25 +15,23 @@ import { Observable } from 'rxjs';
 export class CheckoutComponent implements OnInit {
   cartItems$: Observable<CartItem[]>; 
   cartTotal$: Observable<number>;     
+  
   constructor(private cartService: CartService, public router: Router) {
     this.cartItems$ = this.cartService.getCartItems();
     this.cartTotal$ = this.cartService.getCartTotal();
   }
 
   ngOnInit(): void {
-   
-    this.cartService.getCartItems().subscribe(items => {
-      if (items.length === 0) {
-        alert('Seu carrinho está vazio! Por favor, adicione produtos antes de finalizar o pedido.');
-        this.router.navigate(['/produtos']);
-      }
+  this.cartService.getCartTotal().subscribe(total => { // <<=== VERIFIQUE ESTA LÓGICA
+    if (total === 0) {
+      alert('Seu carrinho está vazio! Por favor, adicione produtos antes de finalizar o pedido.');
+      this.router.navigate(['/produtos']); // Redireciona para a lista de produtos
+    }
     });
   }
 
   confirmOrder(): void {
-    
-    alert('Seu pedido foi confirmado com sucesso! Obrigado pela compra.');
-    this.cartService.clearCart(); 
-    this.router.navigate(['/']); 
+    console.log('Botão "Confirmar Pedido" clicado. Redirecionando para pagamento...'); // Log para debug
+    this.router.navigate(['/pagamento']); 
   }
 }
